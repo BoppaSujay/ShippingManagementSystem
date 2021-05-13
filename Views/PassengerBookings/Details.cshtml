@@ -1,0 +1,74 @@
+﻿@model ShippingManagementSystem.Models.PassengerBooking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PassengerBooking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tickets_Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tickets_Available)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfTickets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ship.ShipModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ship.ShipModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PassengerBookingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

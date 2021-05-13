@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ShippingManagementSystem.Models.Ship>
+
+@{
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacilityType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacilityType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ShipId }) 
+        </td>
+    </tr>
+}
+
+</table>

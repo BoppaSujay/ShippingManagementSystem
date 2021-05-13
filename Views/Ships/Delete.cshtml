@@ -1,0 +1,88 @@
+﻿@model ShippingManagementSystem.Models.Ship
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Ship</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

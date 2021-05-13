@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ShippingManagementSystem.Models.PassengerBooking>
+
+@{
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tickets_Available)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfTickets)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ship.ShipModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tickets_Available)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfTickets)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ship.ShipModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PassengerBookingId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PassengerBookingId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PassengerBookingId })
+        </td>
+    </tr>
+}
+
+</table>

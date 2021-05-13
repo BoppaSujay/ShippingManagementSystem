@@ -1,0 +1,108 @@
+﻿@model ShippingManagementSystem.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="row">
+    <div class="col-lg-6">
+        <h4>User</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DoB)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DoB)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ContactNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ContactNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+    <div class="col-lg-6">
+        <h4>Note: Cancelation Policy</h4>
+        <table class="table">
+            <tr>
+                <th>Cancellation Amount</th>
+                <th> Time</th>
+            </tr>
+            <tr>
+                <td>10%</td>
+                <td>Before 3 Months</td>
+            </tr>
+            <tr>
+                <td>20%</td>
+                <td>Before 2 Months</td>
+            </tr>
+            <tr>
+                <td>50%</td>
+                <td>Before 1 Months</td>
+            </tr>
+            <tr>
+                <td>100%</td>
+                <td>Less than Months</td>
+            </tr>
+        </table>
+    </div>
+</div>

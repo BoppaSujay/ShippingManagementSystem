@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ShippingManagementSystem.Models.Ship>
+
+@{
+    ViewBag.Title = "CargoShip";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<div class="container">
+    <div class="row pt-5 m-auto">
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+
+                if (item.ShipType == "passenger")
+                {
+                    <div class="col-md-8 col-lg-6 pb-3">
+
+                        <!-- Copy the content below until next comment -->
+
+                        <div class="card card-custom bg-white border-white border-0">
+                            <div class="card-custom-img" style="background-image: url(/Content/images/hero_bg_4.jpg);"></div>
+                            <div class="card-custom-avatar">
+                                <img class="img-fluid" src="https://cdn4.iconfinder.com/data/icons/global-logistics-2/512/69-256.png" alt="Avatar" />
+                            </div>
+
+                            <div class="card-body" style="overflow-y: auto">
+                                <h4 class="card-title">Cruise Shipping</h4>
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ShipNumber)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(ModelItem => item.ShipNumber)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ShipModel)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(ModelItem => item.ShipModel)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ShipType)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(ModelItem => item.ShipType)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FacilityType)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(ModelItem => item.FacilityType)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Source)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(ModelItem => item.Source)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Destination)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(ModelItem => item.Destination)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.DepartureDate)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(ModelItem => item.DepartureDate)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.DepartureTime)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(ModelItem => item.DepartureTime)
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <div class="card-footer" style="background: inherit; border-color: inherit;">
+                                <a href="../PassengerBookings/Booking">Book now</a>
+                            </div>
+                        </div>
+
+                        <!-- Copy until here -->
+
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <h1> No data Available</h1>
+        }
+
+    </div>
+</div>

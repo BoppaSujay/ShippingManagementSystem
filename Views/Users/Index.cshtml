@@ -1,0 +1,96 @@
+﻿@model ShippingManagementSystem.Models.CargoBooking
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+<div class="container">
+    <div class="row pt-5 m-auto">
+        <div class="col-md-8 col-lg-6 pb-3">
+
+            <!-- Copy the content below until next comment -->
+            <div class="card card-custom bg-white border-white border-0">
+                <div class="card-custom-img" style="background-image: url(/Content/images/hero_bg_4.jpg);"></div>
+                <div class="card-custom-avatar">
+                    <img class="img-fluid" src="https://cdn4.iconfinder.com/data/icons/global-logistics-2/512/69-256.png" alt="Avatar" />
+                </div>
+                <div class="card-body" style="overflow-y: auto">
+                    <h4 class="card-title">Cargo Shipping</h4>
+                    <p class="card-text">Card has minimum height set but will expand if more space is needed for card body content. You can use Bootstrap <a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks" target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
+                </div>
+                <div class="card-footer" style="background: inherit; border-color: inherit;">
+                    <a href="../Users/CargoShip" class="btn btn-outline-primary">Book Now</a>
+                </div>
+            </div>
+            <!-- Copy until here -->
+
+        </div>
+        <div class="col-md-8 col-lg-6 pb-3">
+
+            <!-- Copy the content below until next comment -->
+            <div class="card card-custom bg-white border-white border-0">
+                <div class="card-custom-img" style="background-image: url(/Content/images/blog_1.jpg);"></div>
+                <div class="card-custom-avatar">
+                    <img class="img-fluid" src="https://cdn4.iconfinder.com/data/icons/transport-flat-icons-vol-1/256/18-512.png" alt="Avatar" />
+                </div>
+                <div class="card-body" style="overflow-y: auto">
+                    <h4 class="card-title">Cruise Shipping</h4>
+                    <p class="card-text">Card has minimum height set but will expand if more space is needed for card body content. You can use Bootstrap <a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks" target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
+                </div>
+                <div class="card-footer" style="background: inherit; border-color: inherit;">
+                    <a href="../Users/CruiseShip" class="btn btn-outline-primary">Book Now</a>
+                </div>
+            </div>
+            <!-- Copy until here -->
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row pt-5 m-auto">
+        <div class="col-md-12 col-lg-12 pt-5">
+
+            <!-- Copy the content below until next comment -->
+
+            <div class="card card-custom bg-white border-white border-0">
+                <div class="card-custom-img" style="background-image: url(/Content/images/lg_hero.jpg);"></div>
+                <div class="card-custom-avatar" style="align-content:center">
+                    <img class="img-fluid" src="https://cdn4.iconfinder.com/data/icons/global-logistics-2/512/69-256.png" alt="Avatar" />
+                </div>
+                <center>
+                    <div class="card-body" style="overflow-y: auto">
+                        <h4 class="card-title">Cargo Shipping</h4>
+                        <div class="text-capitalize">
+                            <p class="col-md-4 col-lg-4">UserId:</p><input type="number" id="user" class="form-control col-md-8 col-lg-8 " placeholder="UserId" />
+                        </div>
+                        <div class="text-capitalize" style="margin-top:5%;">
+                            <p class="col-md-4 col-lg-4">Select Type of Ship</p><select id="type" class="form-control form-control-static col-md-8 col-lg-8">
+                                <option name="choice1" value="cargo">Cargo</option>
+                                <option name="choice2" value="passenger">Passenger</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="background: inherit;border:0px;">
+                        <button class="btn btn-success" id="btnDownload" type="submit">User Excel</button>
+                    </div>
+                </center>
+            </div>
+
+            <!-- Copy until here -->
+
+        </div>
+
+
+        <script>
+        $(document).on('click', '#btnDownload', function () {
+            var r = document.getElementById("user").value;
+            var t = document.getElementById("type").value;
+            window.open('/Users/Report?id=' + r + '&type=' + t, '_blank');
+        });
+        </script>
+
+
+    </div>
+</div>

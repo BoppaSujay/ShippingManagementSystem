@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" Content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/jquery.countdown.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <script src="~/Scripts/main.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/jquery-ui.css">
+    <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" href="~/Content/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="~/fonts/flaticon/flaticon.css">
+
+
+
+    <link rel="stylesheet" href="~/Content/aos.css">
+
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-3" role="banner">
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-2 col-xl-4">
+                        <h3 class="mb-0"><a href="../Home/Index" class="text-white h2 mb-0">Shipping Management System</a></h3>
+                    </div>
+                    <div class="col-12 col-md-7 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                <li><a href="../Home/Index">Home</a></li>
+                                <li><a href="../Home/about">About Us</a></li>
+                                <li class="has-children">
+                                    <a href="#">Services</a>
+                                    <ul class="dropdown">
+                                        <li><a href="../Users/CruiseShip">Cruise</a></li>
+                                        <li><a href="../Users/CargoShip">Cargo Services</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="../Feedbacks/Index">Contact Us</a></li>
+                                <li><a href="../Users/Login">Login</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                </div>
+
+            </div>
+
+        </header>
+    </div>
+    <div class="overlay site-blocks-cover"  style=" background-image: url(../../Content/images/hero_bg_1.jpg);" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+
+                <div class="col-md-8 ">
+
+
+                    <h1 class="text-white font-weight-light mb-5 text-uppercase font-weight-bold">World's best Cargo and Cruise Services</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="site-section block-13">
+        <!-- <div class="container"></div> -->
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div>
+                        <a href="#" class="unit-1 text-center">
+                            <img src="~/Content/images/img_1.jpg" alt="Image" class="img-fluid">
+                            <div class="unit-1-text">
+                                <h3 class="unit-1-heading">Storage</h3>
+                                <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tempore ullam minus voluptate libero.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div>
+                        <a href="#" class="unit-1 text-center">
+                            <img src="~/Content/images/img_2.jpg" alt="Image" class="img-fluid">
+                            <div class="unit-1-text">
+                                <h3 class="unit-1-heading">Air Transports</h3>
+                                <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tempore ullam minus voluptate libero.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div>
+                        <a href="#" class="unit-1 text-center">
+                            <img src="~/Content/images/img_3.jpg" alt="Image" class="img-fluid">
+                            <div class="unit-1-text">
+                                <h3 class="unit-1-heading">Cargo Transports</h3>
+                                <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tempore ullam minus voluptate libero.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div>
+                        <a href="#" class="unit-1 text-center">
+                            <img src="~/Content/images/img_4.jpg" alt="Image" class="img-fluid">
+                            <div class="unit-1-text">
+                                <h3 class="unit-1-heading">Cargo Ship</h3>
+                                <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tempore ullam minus voluptate libero.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div>
+                        <a href="#" class="unit-1 text-center">
+                            <img src="~/Content/images/img_5.jpg" alt="Image" class="img-fluid">
+                            <div class="unit-1-text">
+                                <h3 class="unit-1-heading">Ware Housing</h3>
+                                <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tempore ullam minus voluptate libero.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        </div>
+    <div class="site-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center border-primary">
+                    <h2 class="mb-0 text-primary">What We Offer</h2>
+                    <p class="color-black-opacity-5">Services World class.</p>
+                </div>
+            </div>
+            <div class="row align-items-stretch">
+
+                <div class="col-md-6 col-lg-6 mb-4 mb-lg-0">
+                    <div class="unit-4 d-flex">
+                        <div class="unit-4-icon mr-4"><span class="text-primary flaticon-sea-ship-with-containers"></span></div>
+                        <div>
+                            <h3>Ocean Freight</h3>
+                            <p>Enjoy the best experience with us on the way to the rest of the world</p>
+                            <p class="mb-0"><a href="#">Learn More</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 mb-4 mb-lg-0">
+                    <div class="unit-4 d-flex">
+                        <div class="unit-4-icon mr-4"><span class="text-primary flaticon-sea-ship-with-containers"></span></div>
+                        <div>
+                            <h3>Ground Shipping</h3>
+                            <p>Elegant shipping of cargo and best offers on the shipping material</p>
+                            <p class="mb-0"><a href="#">Learn More</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container body-Content">
+        @RenderBody()
+
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h2 class="footer-heading mb-4">Quick Links</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Testimonials</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 class="footer-heading mb-4">Products</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Testimonials</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 class="footer-heading mb-4">Features</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Testimonials</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 class="footer-heading mb-4">Follow Us</h2>
+                            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+                    <form action="#" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5 text-center">
+                <div class="col-md-12">
+                    <div class="border-top pt-5">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/jquery.countdown.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

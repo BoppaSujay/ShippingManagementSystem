@@ -1,0 +1,111 @@
+﻿@model ShippingManagementSystem.Models.PassengerBooking
+
+@{
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+    ViewBag.Title = "Cancel";
+}
+
+<h2>Ticket Cancellation</h2>
+
+<h3>Are you sure you want to Cancel this ticket?</h3>
+<div class="row">
+    <div class="col-lg-6">
+
+
+        <h4>PassengerBooking</h4>
+        <hr />
+        <dl class="dl-horizontal table">
+            <dt>
+                @Html.DisplayNameFor(model => model.Tickets_Available)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tickets_Available)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TicketCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TicketCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NoOfTickets)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoOfTickets)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalPrice)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BookingDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Ship.ShipModel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ship.ShipModel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.User.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.User.FirstName)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Cancel" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+    <div class="col-lg-6">
+        <h4>Note: Cancelation Policy</h4>
+        <table class="table">
+            <tr>
+                <th>Cancellation Amount</th>
+                <th> Time</th>
+            </tr>
+            <tr>
+                <td>10%</td>
+                <td>Before 3 Months</td>
+            </tr>
+            <tr>
+                <td>20%</td>
+                <td>Before 2 Months</td>
+            </tr>
+            <tr>
+                <td>50%</td>
+                <td>Before 1 Months</td>
+            </tr>
+            <tr>
+                <td>100%</td>
+                <td>Less than Months</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ShipManagementSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DoB" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ContactNumber" Type="int" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Approval" Type="bit" />
+        </EntityType>
+        <EntityType Name="CargoBooking">
+          <Key>
+            <PropertyRef Name="CargoBookingId" />
+          </Key>
+          <Property Name="CargoBookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ShipId" Type="int" Nullable="false" />
+          <Property Name="Product" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="ShippingCost" Type="float" Nullable="false" />
+          <Property Name="BookingDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackId" />
+          </Key>
+          <Property Name="FeedbackId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Correctness" Type="int" Nullable="false" />
+          <Property Name="Safety" Type="int" Nullable="false" />
+          <Property Name="Rate_of_Service" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassengerBooking">
+          <Key>
+            <PropertyRef Name="PassengerBookingId" />
+          </Key>
+          <Property Name="PassengerBookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ShipId" Type="int" Nullable="false" />
+          <Property Name="Tickets_Available" Type="int" />
+          <Property Name="TicketCost" Type="float" Nullable="false" />
+          <Property Name="NoOfTickets" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="float" Nullable="false" />
+          <Property Name="BookingDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShipAccount">
+          <Key>
+            <PropertyRef Name="ShipAccountId" />
+          </Key>
+          <Property Name="ShipAccountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountNumber" Type="int" Nullable="false" />
+          <Property Name="AccountBalance" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Ships">
+          <Key>
+            <PropertyRef Name="ShipId" />
+          </Key>
+          <Property Name="ShipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipNumber" Type="int" Nullable="false" />
+          <Property Name="ShipModel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShipType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FacilityType" Type="varchar" MaxLength="20" />
+          <Property Name="Source" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Destination" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartureDate" Type="date" Nullable="false" />
+          <Property Name="DepartureTime" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SuperAdmin">
+          <Key>
+            <PropertyRef Name="SuperAdminId" />
+          </Key>
+          <Property Name="SuperAdminId" Type="int" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DoB" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ContactNumber" Type="int" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CargoBook__ShipI__398D8EEE">
+          <End Role="Ships" Type="Self.Ships" Multiplicity="1" />
+          <End Role="CargoBooking" Type="Self.CargoBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="ShipId" />
+            </Principal>
+            <Dependent Role="CargoBooking">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CargoBook__UserI__38996AB5">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="CargoBooking" Type="Self.CargoBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="CargoBooking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedback__UserId__2D27B809">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Passenger__Booki__34C8D9D1">
+          <End Role="Ships" Type="Self.Ships" Multiplicity="1" />
+          <End Role="PassengerBooking" Type="Self.PassengerBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="ShipId" />
+            </Principal>
+            <Dependent Role="PassengerBooking">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Passenger__UserI__35BCFE0A">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="PassengerBooking" Type="Self.PassengerBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PassengerBooking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShipManagementSystemModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CargoBooking" EntityType="Self.CargoBooking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassengerBooking" EntityType="Self.PassengerBooking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShipAccount" EntityType="Self.ShipAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ships" EntityType="Self.Ships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuperAdmin" EntityType="Self.SuperAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CargoBook__ShipI__398D8EEE" Association="Self.FK__CargoBook__ShipI__398D8EEE">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="CargoBooking" EntitySet="CargoBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CargoBook__UserI__38996AB5" Association="Self.FK__CargoBook__UserI__38996AB5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CargoBooking" EntitySet="CargoBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedback__UserId__2D27B809" Association="Self.FK__Feedback__UserId__2D27B809">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Passenger__Booki__34C8D9D1" Association="Self.FK__Passenger__Booki__34C8D9D1">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="PassengerBooking" EntitySet="PassengerBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Passenger__UserI__35BCFE0A" Association="Self.FK__Passenger__UserI__35BCFE0A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PassengerBooking" EntitySet="PassengerBooking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShipManagementSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactNumber" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Approval" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CargoBooking">
+          <Key>
+            <PropertyRef Name="CargoBookingId" />
+          </Key>
+          <Property Name="CargoBookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ShipId" Type="Int32" Nullable="false" />
+          <Property Name="Product" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="ShippingCost" Type="Double" Nullable="false" />
+          <Property Name="BookingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Ship" Relationship="Self.FK__CargoBook__ShipI__398D8EEE" FromRole="CargoBooking" ToRole="Ships" />
+          <NavigationProperty Name="User" Relationship="Self.FK__CargoBook__UserI__38996AB5" FromRole="CargoBooking" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackId" />
+          </Key>
+          <Property Name="FeedbackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Correctness" Type="Int32" Nullable="false" />
+          <Property Name="Safety" Type="Int32" Nullable="false" />
+          <Property Name="Rate_of_Service" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Feedback__UserId__2D27B809" FromRole="Feedback" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="PassengerBooking">
+          <Key>
+            <PropertyRef Name="PassengerBookingId" />
+          </Key>
+          <Property Name="PassengerBookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ShipId" Type="Int32" Nullable="false" />
+          <Property Name="Tickets_Available" Type="Int32" />
+          <Property Name="TicketCost" Type="Double" Nullable="false" />
+          <Property Name="NoOfTickets" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Double" Nullable="false" />
+          <Property Name="BookingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Ship" Relationship="Self.FK__Passenger__Booki__34C8D9D1" FromRole="PassengerBooking" ToRole="Ships" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Passenger__UserI__35BCFE0A" FromRole="PassengerBooking" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="ShipAccount">
+          <Key>
+            <PropertyRef Name="ShipAccountId" />
+          </Key>
+          <Property Name="ShipAccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNumber" Type="Int32" Nullable="false" />
+          <Property Name="AccountBalance" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Ship">
+          <Key>
+            <PropertyRef Name="ShipId" />
+          </Key>
+          <Property Name="ShipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipNumber" Type="Int32" Nullable="false" />
+          <Property Name="ShipModel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ShipType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FacilityType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DepartureDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DepartureTime" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="CargoBookings" Relationship="Self.FK__CargoBook__ShipI__398D8EEE" FromRole="Ships" ToRole="CargoBooking" />
+          <NavigationProperty Name="PassengerBookings" Relationship="Self.FK__Passenger__Booki__34C8D9D1" FromRole="Ships" ToRole="PassengerBooking" />
+        </EntityType>
+        <EntityType Name="SuperAdmin">
+          <Key>
+            <PropertyRef Name="SuperAdminId" />
+          </Key>
+          <Property Name="SuperAdminId" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactNumber" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CargoBookings" Relationship="Self.FK__CargoBook__UserI__38996AB5" FromRole="Users" ToRole="CargoBooking" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedback__UserId__2D27B809" FromRole="Users" ToRole="Feedback" />
+          <NavigationProperty Name="PassengerBookings" Relationship="Self.FK__Passenger__UserI__35BCFE0A" FromRole="Users" ToRole="PassengerBooking" />
+        </EntityType>
+        <Association Name="FK__CargoBook__ShipI__398D8EEE">
+          <End Role="Ships" Type="Self.Ship" Multiplicity="1" />
+          <End Role="CargoBooking" Type="Self.CargoBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="ShipId" />
+            </Principal>
+            <Dependent Role="CargoBooking">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CargoBook__UserI__38996AB5">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="CargoBooking" Type="Self.CargoBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="CargoBooking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedback__UserId__2D27B809">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Passenger__Booki__34C8D9D1">
+          <End Role="Ships" Type="Self.Ship" Multiplicity="1" />
+          <End Role="PassengerBooking" Type="Self.PassengerBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="ShipId" />
+            </Principal>
+            <Dependent Role="PassengerBooking">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Passenger__UserI__35BCFE0A">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="PassengerBooking" Type="Self.PassengerBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PassengerBooking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShipManagementSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="CargoBookings" EntityType="Self.CargoBooking" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="PassengerBookings" EntityType="Self.PassengerBooking" />
+          <EntitySet Name="ShipAccounts" EntityType="Self.ShipAccount" />
+          <EntitySet Name="Ships" EntityType="Self.Ship" />
+          <EntitySet Name="SuperAdmins" EntityType="Self.SuperAdmin" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__CargoBook__ShipI__398D8EEE" Association="Self.FK__CargoBook__ShipI__398D8EEE">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="CargoBooking" EntitySet="CargoBookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CargoBook__UserI__38996AB5" Association="Self.FK__CargoBook__UserI__38996AB5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CargoBooking" EntitySet="CargoBookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedback__UserId__2D27B809" Association="Self.FK__Feedback__UserId__2D27B809">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Passenger__Booki__34C8D9D1" Association="Self.FK__Passenger__Booki__34C8D9D1">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="PassengerBooking" EntitySet="PassengerBookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Passenger__UserI__35BCFE0A" Association="Self.FK__Passenger__UserI__35BCFE0A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PassengerBooking" EntitySet="PassengerBookings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShipManagementSystemModelStoreContainer" CdmEntityContainer="ShipManagementSystemEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Approval" ColumnName="Approval" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CargoBookings">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.CargoBooking">
+              <MappingFragment StoreEntitySet="CargoBooking">
+                <ScalarProperty Name="CargoBookingId" ColumnName="CargoBookingId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ShippingCost" ColumnName="ShippingCost" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Correctness" ColumnName="Correctness" />
+                <ScalarProperty Name="Safety" ColumnName="Safety" />
+                <ScalarProperty Name="Rate_of_Service" ColumnName="Rate_of_Service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassengerBookings">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.PassengerBooking">
+              <MappingFragment StoreEntitySet="PassengerBooking">
+                <ScalarProperty Name="PassengerBookingId" ColumnName="PassengerBookingId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+                <ScalarProperty Name="Tickets_Available" ColumnName="Tickets_Available" />
+                <ScalarProperty Name="TicketCost" ColumnName="TicketCost" />
+                <ScalarProperty Name="NoOfTickets" ColumnName="NoOfTickets" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShipAccounts">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.ShipAccount">
+              <MappingFragment StoreEntitySet="ShipAccount">
+                <ScalarProperty Name="ShipAccountId" ColumnName="ShipAccountId" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="AccountBalance" ColumnName="AccountBalance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ships">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.Ship">
+              <MappingFragment StoreEntitySet="Ships">
+                <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+                <ScalarProperty Name="ShipNumber" ColumnName="ShipNumber" />
+                <ScalarProperty Name="ShipModel" ColumnName="ShipModel" />
+                <ScalarProperty Name="ShipType" ColumnName="ShipType" />
+                <ScalarProperty Name="FacilityType" ColumnName="FacilityType" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuperAdmins">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.SuperAdmin">
+              <MappingFragment StoreEntitySet="SuperAdmin">
+                <ScalarProperty Name="SuperAdminId" ColumnName="SuperAdminId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ShipManagementSystemModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

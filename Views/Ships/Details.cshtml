@@ -1,0 +1,82 @@
+﻿@model ShippingManagementSystem.Models.Ship
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ship</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShipId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

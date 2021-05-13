@@ -1,0 +1,65 @@
+﻿@model ShippingManagementSystem.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogout.cshtml";
+}
+
+
+@using (Html.BeginForm("Login", "Users", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row pt-5 m-auto">
+            <div class="col-md-12 col-lg-12 pb-3">
+                <!-- Copy the content below until next comment -->
+                <div class="card card-custom bg-white border-white border-0">
+                    <div class="card-custom-img" style="background-image: url(/Content/images/hero_bg_4.jpg);"></div>
+                    <div class="card-custom-avatar">
+                        <img class="img-fluid" src="https://www.seekpng.com/png/small/138-1387775_login-to-do-whatever-you-want-login-icon.png" alt="Avatar" />
+                    </div>
+                    <center>
+                        <div class="card-body" style="overflow-y: auto">
+                            <h1 class="card-title">Login</h1>
+                            <br />
+                            <table cellspacing="10" cellpadding="10" style="align-content:center;float:center">
+                                <tr>
+                                    <td> @Html.LabelFor(model => model.UserId)</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.LabelFor(model => model.Password)</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" , Type="password"} })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-lg-12" style="margin-top:5%; margin-bottom:5%;">
+                                                <input type="submit" value="Login" class="btn btn-default" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+
+                        </div>
+                    </center>
+                </div>
+
+                <!-- Copy until here -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
